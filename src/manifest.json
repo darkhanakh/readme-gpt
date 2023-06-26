@@ -1,0 +1,18 @@
+{
+  "name": "README Writer",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "description": "Chrome extension to write README.md files for GitHub repos",
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/darkhanakh/readme-writer"],
+      "run_at": "document_idle",
+      "all_frames": false,
+      "js": ["./contents/content.js"]
+    }
+  ],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
