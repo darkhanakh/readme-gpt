@@ -1,20 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-    width: 200px;
-    height: 200px;
+    @apply h-52 w-52;
 }
 
-.container {
-    width: 90%;
-    height: 90%;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+.extension {
+    @apply flex flex-col items-center justify-center h-full w-full;
 }
 
-.wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.extension__textarea {
+    @apply textarea textarea-bordered;
+}
+
+.extension__title {
+    @apply text-xl;
+}
+
+.extension__button {
+    @apply btn btn-outline mt-2 btn-sm;
+}
+
+.extension__form {
+    @apply flex flex-col items-center justify-center;
 }
