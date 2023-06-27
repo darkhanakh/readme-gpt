@@ -8,7 +8,7 @@
       "matches": ["https://github.com/darkhanakh/readme-writer"],
       "run_at": "document_idle",
       "all_frames": false,
-      "js": ["./contents/content.js"]
+      "js": ["./content.js"]
     }
   ],
   "host_permissions": ["<all_urls>"],
