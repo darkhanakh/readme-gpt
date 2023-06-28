@@ -7,11 +7,11 @@ body {
 }
 
 .extension {
-    @apply flex flex-col items-center justify-center h-full w-full;
+    @apply flex flex-col items-center justify-center h-full w-full p-4;
 }
 
 .extension__textarea {
-    @apply textarea textarea-bordered;
+    @apply textarea textarea-bordered textarea-primary;
 }
 
 .extension__title {
@@ -24,4 +24,8 @@ body {
 
 .extension__form {
     @apply flex flex-col items-center justify-center;
+}
+
+.extension__input {
+    @apply input input-bordered input-sm mb-2 input-primary;
 }

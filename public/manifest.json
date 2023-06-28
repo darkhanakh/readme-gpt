@@ -5,7 +5,7 @@
   "description": "Chrome extension to write README.md files for GitHub repos",
   "content_scripts": [
     {
-      "matches": ["https://github.com/darkhanakh/readme-writer"],
+      "matches": ["<all_urls>"],
       "run_at": "document_idle",
       "all_frames": false,
       "js": ["./content.js"]
