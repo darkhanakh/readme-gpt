@@ -54,3 +54,6 @@ body {
     @apply select select-bordered w-full select-sm select-primary max-w-xs mb-3;
 }
 
+.extension__form-error {
+    @apply alert alert-error mt-3;
+}

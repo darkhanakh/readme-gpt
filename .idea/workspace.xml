@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6af37c0-eab1-42ff-af72-cff27902023b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/readme-writer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/readme-writer.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/contents/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/contents/content.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/popup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/popup.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/OpenAIUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/OpenAIUtils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +88,7 @@
       <workItem from="1688025720002" duration="47000" />
       <workItem from="1688456439260" duration="5132000" />
       <workItem from="1688627893790" duration="3957000" />
-      <workItem from="1688720799550" duration="5048000" />
+      <workItem from="1688720799550" duration="6959000" />
     </task>
     <servers />
   </component>

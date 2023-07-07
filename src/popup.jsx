@@ -11,9 +11,16 @@ const Popup = () => {
   const [license, setLicense] = useState("");
   const [environment, setEnvironment] = useState("");
   const [extra, setExtra] = useState("");
+  const [formError, setFormError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      setFormError("Please fill in all required fields.");
+      return;
+    }
+
     const [tab] = await chrome.tabs.query({
       active: true,
       lastFocusedWindow: true,
@@ -25,6 +32,14 @@ const Popup = () => {
       license,
       environment,
     });
+    handleReset();
+  };
+
+  const validateForm = () => {
+    if (!name || !features || !license || !environment) {
+      return false;
+    }
+    return true;
   };
 
   const handleReset = (e) => {
@@ -35,6 +50,7 @@ const Popup = () => {
     setLicense("");
     setEnvironment("");
     setExtra("");
+    setFormError("");
   };
 
   useEffect(() => {
@@ -139,6 +155,11 @@ const Popup = () => {
           value={extra}
           onInput={(e) => setExtra(e.target.value)}
         ></textarea>
+        {formError && (
+          <div className="extension__form-error">
+            <span>{formError}</span>
+          </div>
+        )}
         <button className="extension__button" type="submit">
           Generate
         </button>

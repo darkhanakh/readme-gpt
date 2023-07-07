@@ -9,15 +9,23 @@ const octokit = new Octokit({});
 let editor = null;
 let tab = null;
 
-window.addEventListener("load", async () => {
-  setTimeout(() => {
-    editor = document.querySelector(".cm-content");
-    console.log(editor);
-  }, 500);
-  console.log("Hello from script.js");
-});
+function getEditorElement() {
+  return new Promise((resolve, reject) => {
+    const interval = setInterval(() => {
+      editor = document.querySelector(".cm-content");
+      if (editor) {
+        clearInterval(interval);
+        resolve();
+      }
+    }, 500);
+  });
+}
 
 async function generateReadme(request, sender, sendResponse) {
+  if (!editor) {
+    await getEditorElement();
+  }
+
   const response = await openAIUtils.generateProjectReadme(
     request.name,
     request.features,
@@ -53,5 +61,11 @@ async function generateReadme(request, sender, sendResponse) {
     editor.textContent = text;
   }
 }
+
+window.addEventListener("load", () => {
+  getEditorElement().then(() => {
+    console.log(editor);
+  });
+});
 
 chrome.runtime.onMessage.addListener(generateReadme);

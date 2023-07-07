@@ -45,7 +45,9 @@ Introduction: Provide a description to the project, explaining its purpose and g
 Features: Highlight the key features and functionalities of the project. Explain what sets it apart and makes it useful for users. With this features: ${features}
 Installation: Explain how users can install and set up the project on their local machines. Environment: ${projectEnvironment}
 Usage: Describe how users can use the project and any relevant instructions or examples to help them get started.
-Contributing: Provide guidelines and instructions for users who wish to contribute to the project. Explain how they can get involved, submit bug reports, or suggest improvements. Open to contribution: ${contribution}
+Contributing: Provide guidelines and instructions for users who wish to contribute to the project. Explain how they can get involved, submit bug reports, or suggest improvements. Open to contribution: ${
+          contribution ? "Yes" : "No"
+        }
 License: Specify the license under which the project is distributed and any relevant terms or conditions. License: ${projectLicense}
 `,
       },
