@@ -1,79 +1,55 @@
-# Keyipker
+# Readme Writer
 
-![Keyipker logo](logo.png)
+![Readme Writer logo](https://example.com/readme-writer-logo.png)
 
 ## Introduction
-Keyipker is a project designed to simplify and streamline the process of generating and managing API keys. With Keyipker, developers can easily generate, store, and retrieve API keys for their applications. The project aims to provide a secure and convenient solution for managing API keys, saving developers time and effort.
+
+Readme Writer is a powerful Chrome extension that allows you to effortlessly generate comprehensive README.md files right on Github. With the help of state-of-the-art GPT (Generative Pretrained Transformer) technology, it provides an intuitive interface for creating informative and well-structured project documentation.
 
 ## Features
-- Simple API key generation
-- Secure key storage
-- Easy key retrieval
-- Convenient key management
 
-Keyipker stands out from other similar tools with its user-friendly interface and robust security measures. The project ensures that API keys are only accessible to authorized users, protecting sensitive information and preventing unauthorized access.
+- Easy-to-use Chrome extension that seamlessly integrates with Github
+- Automatically generates README.md files for your projects
+- Powered by GPT, ensuring high-quality and coherent documentation
+- Speeds up the process of creating README files
+- Saves developers time and effort in writing project documentations
+- Improves the overall readability and professionalism of README files
 
 ## Installation
-To install Keyipker on your local machine, follow these steps:
 
-1. Clone the repository: 
-```
-git clone https://github.com/username/keyipker.git
-```
+To install Readme Writer, follow these steps:
 
-2. Change to the project directory:
-```
-cd keyipker
-```
-
-3. Install the necessary dependencies:
-```
-npm install
-```
+1. Ensure you have [Google Chrome](https://www.google.com/chrome/) web browser installed.
+2. Visit the [Chrome Web Store](https://chrome.google.com/webstore) and search for "Readme Writer".
+3. Click on "Add to Chrome" to install the extension.
+4. Once the installation is complete, the Readme Writer extension will appear in your browser's toolbar.
 
 ## Usage
-To use Keyipker, follow the steps below:
 
-1. Start the Keyipker server:
-```
-npm start
-```
+After installing the Readme Writer extension, you can start using it by following these steps:
 
-2. Access the Keyipker interface at `http://localhost:3000` in your web browser.
+1. Navigate to the Github repository page of the project you want to create a README.md file for.
+2. Click on the Readme Writer extension icon in your browser's toolbar.
+3. Fill in the necessary details and information, such as project description, goals, features, and usage instructions.
+4. Click on the "Generate" button.
+5. Readme Writer will process the information and generate a README.md file for your project.
+6. Review the generated README.md file, make any necessary edits, and save it to your repository.
 
-3. Sign up or log in to your Keyipker account.
-
-4. Generate a new API key using the provided interface.
-
-5. Store your API key securely and retrieve it whenever needed.
-
-Keyipker provides an intuitive user interface to make the process of managing API keys as seamless as possible. With its convenient features, developers can easily generate and access their API keys without any hassle.
+Please note that the generated README.md file is a starting point and may require further customization to meet your project's specific needs.
 
 ## Contributing
-Keyipker is open to contributions from the community. If you would like to contribute, please follow these guidelines:
 
-1. Fork the repository.
+We welcome contributions from the community! If you want to contribute to Readme Writer, please follow these guidelines:
 
-2. Create a new branch for your contribution:
-```
-git checkout -b feature/your-feature-name
-```
+- Fork the repository on Github.
+- Make your desired changes or additions.
+- Submit a pull request detailing your changes and explaining their purpose.
+- Provide a clear and concise description of the problem or improvement you are addressing.
+- Ensure your code follows the project's coding guidelines and standards.
+- Be open to feedback and iterate on your changes as needed.
 
-3. Make your changes and commit them with descriptive messages:
-```
-git commit -m "Add your message here"
-```
-
-4. Push your changes to your forked repository:
-```
-git push origin feature/your-feature-name
-```
-
-5. Open a pull request on the main repository.
-
-6. A project maintainer will review your contribution and merge it if it meets the project's guidelines and requirements.
-
-If you encounter any issues or bugs, please report them by opening an issue on the project's GitHub repository. Additionally, you are welcome to suggest improvements or new features by creating a new issue.
+Feel free to report any bugs, suggest improvements, or request new features by opening an issue on the Github repository.
 
 ## License
-Keyipker is distributed under the [MIT License](LICENSE). Feel free to use, modify, and distribute the project under the terms and conditions specified by
+
+Readme Writer is distributed under the [MIT License](https://opensource.org/licenses/MIT). By using this project, you agree to the terms and conditions specified in the
