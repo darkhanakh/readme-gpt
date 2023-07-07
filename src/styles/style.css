@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    @apply h-52 w-52;
+    @apply h-64 w-64;
 }
 
 .extension {
@@ -11,15 +11,19 @@ body {
 }
 
 .extension__textarea {
-    @apply textarea textarea-bordered textarea-primary;
+    @apply textarea textarea-bordered textarea-primary w-full;
 }
 
 .extension__title {
-    @apply text-xl;
+    @apply text-2xl;
 }
 
 .extension__button {
     @apply btn btn-outline mt-2 btn-sm;
+}
+
+.extension__button--reset {
+    @apply btn-error;
 }
 
 .extension__form {
@@ -27,5 +31,26 @@ body {
 }
 
 .extension__input {
-    @apply input input-bordered input-sm mb-2 input-primary;
+    @apply input input-bordered input-sm mb-2 input-primary w-full;
 }
+
+.extension__contribution{
+    @apply form-control;
+}
+
+.extension__contribution-label {
+    @apply label cursor-pointer;
+}
+
+.extension__contribution-text {
+    @apply label-text;
+}
+
+.extension__contribution-checkbox {
+    @apply checkbox;
+}
+
+.extension__select {
+    @apply select select-bordered w-full select-sm select-primary max-w-xs mb-3;
+}
+

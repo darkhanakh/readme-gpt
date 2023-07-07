@@ -1,14 +1,17 @@
+import { Octokit } from "octokit";
+
 import { OpenAIChatUtils } from "./../utils/OpenAIUtils";
 import CONSTANTS from "../../constants";
 
 const openAIUtils = new OpenAIChatUtils(CONSTANTS.OPENAI_KEY);
+const octokit = new Octokit({});
 
 let editor = null;
+let tab = null;
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
   setTimeout(() => {
     editor = document.querySelector(".cm-content");
-    editor.textContent = "";
     console.log(editor);
   }, 500);
   console.log("Hello from script.js");
@@ -17,7 +20,11 @@ window.addEventListener("load", () => {
 async function generateReadme(request, sender, sendResponse) {
   const response = await openAIUtils.generateProjectReadme(
     request.name,
-    request.description
+    request.features,
+    request.contribution,
+    request.license,
+    request.environment,
+    request.extra
   );
   const reader = response.body.getReader();
   let text = "";

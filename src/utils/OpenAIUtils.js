@@ -28,11 +28,26 @@ export class OpenAIChatUtils {
     }
   }
 
-  generateProjectReadme(projectName, description) {
+  generateProjectReadme(
+    projectName,
+    features,
+    contribution,
+    projectLicense,
+    projectEnvironment,
+    extra
+  ) {
     const messages = [
       {
         role: "user",
-        content: `You are a developer working on a project called ${projectName} with ${description} You need to write a clear and engaging project README.md file to introduce project users and highlight its key features and benefits.Write in markdown syntax.In your README description, make sure to cover the following points:Introduce Project and its purpose.Highlight key features.Describe benefits for developers.Outline potential use cases.Include installation and usage instructions.Remember to write concisely and use clear language to effectively communicate the project's value proposition and engage potential users.`,
+        content: `You are a developer working on a project called ${projectName}.You need to write a concise and informative project README.md file to introduce the project and provide essential information to users. Extra information from user: ${extra}
+Write a README.md file in Markdown syntax and emojis, so document that covers the following sections:
+Introduction: Provide a description to the project, explaining its purpose and goals.
+Features: Highlight the key features and functionalities of the project. Explain what sets it apart and makes it useful for users. With this features: ${features}
+Installation: Explain how users can install and set up the project on their local machines. Environment: ${projectEnvironment}
+Usage: Describe how users can use the project and any relevant instructions or examples to help them get started.
+Contributing: Provide guidelines and instructions for users who wish to contribute to the project. Explain how they can get involved, submit bug reports, or suggest improvements. Open to contribution: ${contribution}
+License: Specify the license under which the project is distributed and any relevant terms or conditions. License: ${projectLicense}
+`,
       },
     ];
 

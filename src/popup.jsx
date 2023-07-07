@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { render } from "react-dom";
 
 import "./styles/style.css";
@@ -6,7 +6,11 @@ import "./styles/normalize.css";
 
 const Popup = () => {
   const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
+  const [features, setFeatures] = useState("");
+  const [contribution, setContribution] = useState(false);
+  const [license, setLicense] = useState("");
+  const [environment, setEnvironment] = useState("");
+  const [extra, setExtra] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,9 +20,55 @@ const Popup = () => {
     });
     await chrome.tabs.sendMessage(tab.id, {
       name,
-      description,
+      features,
+      contribution,
+      license,
+      environment,
     });
   };
+
+  const handleReset = (e) => {
+    e.preventDefault();
+    setName("");
+    setFeatures("");
+    setContribution(false);
+    setLicense("");
+    setEnvironment("");
+    setExtra("");
+  };
+
+  useEffect(() => {
+    // Load the state variables from storage.local
+    chrome.storage.local.get(
+      ["name", "features", "contribution", "license", "environment", "extra"],
+      (result) => {
+        setName(result.name || "");
+        setFeatures(result.features || "");
+        setContribution(result.contribution || false);
+        setLicense(result.license || "");
+        setEnvironment(result.environment || "");
+        setExtra(result.extra || "");
+        console.log(result);
+      }
+    );
+  }, []);
+
+  useEffect(() => {
+    // Save the state variables to storage.local
+    chrome.storage.local.set(
+      {
+        name,
+        features,
+        contribution,
+        license,
+        environment,
+        extra,
+      },
+      function () {
+        console.log("Saved");
+      }
+    );
+  }, [name, features, contribution, license, environment, extra]);
 
   return (
     <div className="extension">
@@ -33,11 +83,71 @@ const Popup = () => {
         />
         <textarea
           className="extension__textarea"
-          placeholder="Project desciption"
-          value={description}
-          onInput={(e) => setDescription(e.target.value)}
+          placeholder="Project features"
+          value={features}
+          onInput={(e) => setFeatures(e.target.value)}
         ></textarea>
-        <button className="extension__button">Generate</button>
+        <div className="extension__contribution">
+          <label className="extension__contribution-label">
+            <span className="extension__contribution-text">
+              Is project open to contribution?
+            </span>
+            <input
+              type="checkbox"
+              checked={contribution}
+              onChange={(e) => setContribution(e.target.checked)}
+              className="extension__contribution-checkbox"
+            />
+          </label>
+        </div>
+        <select
+          className="extension__select"
+          value={license}
+          onChange={(e) => setLicense(e.target.value)}
+        >
+          <option disabled value="">
+            Select a license
+          </option>
+          <option value="MIT">MIT</option>
+          <option value="GPLv3">GPLv3</option>
+          <option value="Apache License 2.0">Apache License 2.0</option>
+          <option value="The Unlicense">The Unlicense</option>
+          <option value="Boost Software License 1.0">
+            Boost Software License 1.0
+          </option>
+          <option value="Mozilla Public License 2.0">
+            Mozilla Public License 2.0
+          </option>
+        </select>
+
+        <select
+          className="extension__select"
+          value={environment}
+          onChange={(e) => setEnvironment(e.target.value)}
+        >
+          <option disabled value="">
+            Select an environment
+          </option>
+          <option value="npm">npm</option>
+          <option value="yarn">yarn</option>
+          <option value="Python(pip)">Python (pip)</option>
+          <option value="Python(poetry)">Python (poetry)</option>
+        </select>
+        <textarea
+          className="extension__textarea"
+          placeholder="Extra information"
+          value={extra}
+          onInput={(e) => setExtra(e.target.value)}
+        ></textarea>
+        <button className="extension__button" type="submit">
+          Generate
+        </button>
+        <button
+          className="extension__button extension__button--reset"
+          onClick={handleReset}
+        >
+          Reset
+        </button>
       </form>
     </div>
   );
