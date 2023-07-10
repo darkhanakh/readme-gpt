@@ -1,8 +1,10 @@
+import "./styles/style.css";
+import "./styles/normalize.css";
+
 import React, { useEffect, useState } from "react";
 import { render } from "react-dom";
 
-import "./styles/style.css";
-import "./styles/normalize.css";
+import Select from "./components/Select.jsx";
 
 const Popup = () => {
   const [name, setName] = useState("");
@@ -116,39 +118,28 @@ const Popup = () => {
             />
           </label>
         </div>
-        <select
-          className="extension__select"
-          value={license}
-          onChange={(e) => setLicense(e.target.value)}
-        >
-          <option disabled value="">
-            Select a license
-          </option>
-          <option value="MIT">MIT</option>
-          <option value="GPLv3">GPLv3</option>
-          <option value="Apache License 2.0">Apache License 2.0</option>
-          <option value="The Unlicense">The Unlicense</option>
-          <option value="Boost Software License 1.0">
-            Boost Software License 1.0
-          </option>
-          <option value="Mozilla Public License 2.0">
-            Mozilla Public License 2.0
-          </option>
-        </select>
 
-        <select
-          className="extension__select"
-          value={environment}
-          onChange={(e) => setEnvironment(e.target.value)}
-        >
-          <option disabled value="">
-            Select an environment
-          </option>
-          <option value="npm">npm</option>
-          <option value="yarn">yarn</option>
-          <option value="Python(pip)">Python (pip)</option>
-          <option value="Python(poetry)">Python (poetry)</option>
-        </select>
+        <Select
+          options={[
+            "MIT",
+            "GPLv3",
+            "Apache License 2.0",
+            "The Unlicense",
+            "Boost Software License 1.0",
+            "Mozilla Public License 2.0",
+          ]}
+          optionText="Select a license"
+          setState={setLicense}
+          state={license}
+        />
+
+        <Select
+          options={["npm", "yarn", "Python (pip)", "Python (poetry)"]}
+          optionText="Select an environment"
+          setState={setEnvironment}
+          state={environment}
+        />
+
         <textarea
           className="extension__textarea"
           placeholder="Extra information"
