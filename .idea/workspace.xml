@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6af37c0-eab1-42ff-af72-cff27902023b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Select.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/resources/how_extension_works.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contents/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/contents/content.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/popup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/popup.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/OpenAIUtils.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/OpenAIUtils.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +42,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat/image-upload&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/Work/Web/Frontend/Real-Work/dance-battle&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -50,6 +52,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\Darkhan\\AppData\\Roaming\\npm\\node_modules\\prettier&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;JavaScript.Libraries&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Darkhan\\AppData\\Local\\JetBrains\\Toolbox\\apps\\WebStorm\\ch-0\\231.9011.35\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -64,6 +67,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Work\Web\FullStack\readme-writer\docs\resources" />
       <recent name="D:\Work\Web\FullStack\readme-writer\public" />
       <recent name="D:\Work\Web\FullStack\readme-writer\src\styles" />
       <recent name="D:\Work\Web\FullStack\readme-writer\src\contents" />
@@ -88,6 +92,8 @@
       <workItem from="1688627893790" duration="3957000" />
       <workItem from="1688720799550" duration="7539000" />
       <workItem from="1688962956159" duration="2010000" />
+      <workItem from="1689067541077" duration="3362000" />
+      <workItem from="1689139377086" duration="2273000" />
     </task>
     <servers />
   </component>

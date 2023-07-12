@@ -1,13 +1,26 @@
-import { Octokit } from "octokit";
-
-import { OpenAIChatUtils } from "./../utils/OpenAIUtils";
+import { OpenAIChatUtils } from "../utils/OpenAIUtils";
 import CONSTANTS from "../../constants";
+import { Octokit } from "octokit";
 
 const openAIUtils = new OpenAIChatUtils(CONSTANTS.OPENAI_KEY);
 const octokit = new Octokit({});
 
 let editor = null;
 let tab = null;
+
+// Get data about repository from Octokit using the repository URL
+async function getRepoData(url) {
+  const [_, owner, repo] = url.split("/");
+
+  return await octokit.request("GET /repos/{owner}/{repo}/contents/{path}", {
+    owner: owner,
+    repo: repo,
+    path: "/docs/resources",
+    headers: {
+      "X-GitHub-Api-Version": "2022-11-28",
+    },
+  });
+}
 
 function getEditorElement() {
   return new Promise((resolve, reject) => {
@@ -22,9 +35,14 @@ function getEditorElement() {
 }
 
 async function generateReadme(request, sender, sendResponse) {
+  const repoData = await getRepoData(request.tab.url);
+
   if (!editor) {
     await getEditorElement();
   }
+
+  // Loop through repoData and get all html_url's
+  const resources = repoData.data.map((resource) => resource.html_url);
 
   const response = await openAIUtils.generateProjectReadme(
     request.name,
@@ -32,7 +50,8 @@ async function generateReadme(request, sender, sendResponse) {
     request.contribution,
     request.license,
     request.environment,
-    request.extra
+    request.extra,
+    resources
   );
   const reader = response.body.getReader();
   let text = "";
