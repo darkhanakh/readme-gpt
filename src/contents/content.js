@@ -10,12 +10,17 @@ let tab = null;
 
 // Get data about repository from Octokit using the repository URL
 async function getRepoData(url) {
+  const match = url.match(
+    /github\.com\/([^/]+)\/([^/]+)\/[^/]+\/(.+?)(?=\/|$)/
+  );
+
   return await octokit.request(
     `GET /repos/{owner}/{repo}/contents/docs/{path}`,
     {
       owner: match[1],
       repo: match[2],
       path: "resources",
+      ref: match[3] ? match[3] : "main",
       headers: {
         "X-GitHub-Api-Version": "2022-11-28",
       },
