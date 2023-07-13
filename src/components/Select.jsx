@@ -12,8 +12,12 @@ const Select = ({ optionText, options, setState, state }) => {
           {optionText}
         </option>
 
-        {options.map((option) => {
-          return <option value={option}>{option}</option>;
+        {options.map((option, index) => {
+          return (
+            <option value={option} key={index}>
+              {option}
+            </option>
+          );
         })}
       </select>
     </>

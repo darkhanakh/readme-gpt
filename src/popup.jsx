@@ -127,7 +127,6 @@ const Popup = () => {
         </div>
 
         <Select
-          key="license"
           options={[
             "MIT",
             "GPLv3",
@@ -142,7 +141,6 @@ const Popup = () => {
         />
 
         <Select
-          key="environment"
           options={[
             "npm",
             "yarn",
