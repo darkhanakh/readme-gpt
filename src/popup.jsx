@@ -14,6 +14,7 @@ const Popup = () => {
   const [environment, setEnvironment] = useState("");
   const [extra, setExtra] = useState("");
   const [formError, setFormError] = useState("");
+  const [tab, setTab] = useState({});
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,25 +24,21 @@ const Popup = () => {
       return;
     }
 
-    const [tab] = await chrome.tabs.query({
-      active: true,
-      lastFocusedWindow: true,
-    });
+    console.log(tab);
+
     await chrome.tabs.sendMessage(tab.id, {
       name,
       features,
       contribution,
       license,
       environment,
+      tab,
     });
-    handleReset();
+    handleReset(e);
   };
 
   const validateForm = () => {
-    if (!name || !features || !license || !environment) {
-      return false;
-    }
-    return true;
+    return !(!name || !features || !license || !environment);
   };
 
   const handleReset = (e) => {
@@ -56,6 +53,14 @@ const Popup = () => {
   };
 
   useEffect(() => {
+    const getCurrentTab = async () => {
+      const tabs = await chrome.tabs.query({
+        active: true,
+        currentWindow: true,
+      });
+      setTab(tabs[0]);
+    };
+
     // Load the state variables from storage.local
     chrome.storage.local.get(
       ["name", "features", "contribution", "license", "environment", "extra"],
@@ -69,6 +74,8 @@ const Popup = () => {
         console.log(result);
       }
     );
+
+    getCurrentTab();
   }, []);
 
   useEffect(() => {
@@ -120,6 +127,7 @@ const Popup = () => {
         </div>
 
         <Select
+          key="license"
           options={[
             "MIT",
             "GPLv3",
@@ -134,7 +142,14 @@ const Popup = () => {
         />
 
         <Select
-          options={["npm", "yarn", "Python (pip)", "Python (poetry)"]}
+          key="environment"
+          options={[
+            "npm",
+            "yarn",
+            "Python (pip)",
+            "Python (poetry)",
+            "No environment",
+          ]}
           optionText="Select an environment"
           setState={setEnvironment}
           state={environment}
