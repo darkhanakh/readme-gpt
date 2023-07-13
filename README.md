@@ -1,43 +1,74 @@
-# README.md Writer 🖊️
+<h2 align="center">📖 README-GPT</h2>
+<p align="center">A powerful tool for generating high-quality README files using GPT-3 and integrating with GitHub API.</p>
 
-![GIF](https://raw.githubusercontent.com/darkhanakh/readme-writer/image-upload/docs/resources/how_extension_works.gif)
+---
 
-## Introduction
+<p align="center"><img src="https://github.com/darkhanakh/readme-gpt/blob/main/docs/resources/how_extension_works.gif?raw=true" alt="How the extension works"></p>
 
-README.md Writer is a powerful project that aims to make writing README files effortless and efficient. This tool is designed to simplify the process of creating clear and informative README files for your projects. 
+## 🚀 Features
 
-## Features
+- Write README files directly on Github, making it convenient and efficient.
+- Powered by GPT-3 for generating well-structured and informative README content.
+- Chrome extension to enhance your productivity and streamline the documentation process.
+- Seamless integration with the GitHub API to extract repository information for creating comprehensive README files.
 
-🚀 Powered with GPT: README.md Writer utilizes cutting-edge GPT technology, which enables it to generate high-quality content for your README file.
+## 🔧 Installation
 
-📝 Write README right on Github: With this project, you can create and edit your README file directly on GitHub, saving you valuable time.
+To use Readme-GPT, follow these steps:
 
-⚙️ Plenty of options: README.md Writer offers a wide range of customizable options to suit your project's needs. You can personalize the style, formatting, and content to create README files that perfectly represent your project.
+1. Clone this repository to your local machine.
+```shell
+git clone https://github.com/darkhanakh/readme-gpt.git
+```
 
-🌐 Chrome extension: Our tool comes with a convenient chrome extension, allowing you to access README.md Writer's features directly from your browser.
+2. Navigate to the project directory.
+```shell
+cd readme-gpt
+```
 
-## Installation
+3. Install the required dependencies using Yarn.
+```shell
+yarn install
+```
 
-To install README.md Writer, follow these simple steps:
+4. Build the project.
+```shell
+yarn build
+```
 
-1. Ensure you have yarn installed in your local environment.
-2. Clone this repository to your local machine.
-3. Run `yarn install` to install all project dependencies.
+5. Start the development server.
+```shell
+yarn start
+```
 
-## Usage
+## 📖 Usage
 
-To get started with README.md Writer:
+To use Readme-GPT and generate awesome README files, you can follow these instructions:
 
-1. Launch the project using your preferred IDE or text editor.
-2. Modify the necessary files to suit your project's requirements.
-3. Use the chrome extension or navigate to GitHub to write or edit your README file. Preview the result to ensure it meets your expectations.
+1. Visit the Github page of the repository on which you want to create or update the README file.
 
-## Contributing
+2. Click on the Readme-GPT browser extension icon in the toolbar. 
 
-We appreciate your interest in contributing to README.md Writer. Although this project is not currently open to external contributions, we value your feedback, bug reports, and suggestions for improvements. Please feel free to reach out to us through the appropriate channels.
+3. Select the sections you want to include in your README and provide relevant information accordingly.
 
-## License
+4. Edit and structure the generated content as needed.
 
-This project is distributed under the **MIT License**. For detailed information on the terms and conditions, please refer to the [LICENSE](https://github.com/darkhanakh/readme-writer/blob/main/LICENSE) file.
+5. Click on the "Save" button to automatically update your README file on GitHub.
 
-We hope that README.md Writer proves to be an indispensable tool in simplifying the README creation process for your projects. Happy writing!
+## 🤝 Contributing
+
+We welcome contributions from the community to make Readme-GPT even better! To contribute, please follow these guidelines:
+
+1. Fork the repository.
+
+2. Create a new branch.
+
+3. Make your enhancements or bug fixes.
+
+4. Open a new pull request with detailed information about the changes.
+
+5. We appreciate and encourage feedback from all users. Please report any suggestions, issues, or bugs on the GitHub Issues page.
+
+## 📝 License
+
+This project is licensed under the [MIT](LICENSE) License. You are free to use, modify, and distribute this software under the terms specified in the
