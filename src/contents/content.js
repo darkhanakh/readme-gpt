@@ -10,16 +10,17 @@ let tab = null;
 
 // Get data about repository from Octokit using the repository URL
 async function getRepoData(url) {
-  const [_, owner, repo] = url.split("/");
-
-  return await octokit.request("GET /repos/{owner}/{repo}/contents/{path}", {
-    owner: owner,
-    repo: repo,
-    path: "/docs/resources",
-    headers: {
-      "X-GitHub-Api-Version": "2022-11-28",
-    },
-  });
+  return await octokit.request(
+    `GET /repos/{owner}/{repo}/contents/docs/{path}`,
+    {
+      owner: match[1],
+      repo: match[2],
+      path: "resources",
+      headers: {
+        "X-GitHub-Api-Version": "2022-11-28",
+      },
+    }
+  );
 }
 
 function getEditorElement() {
