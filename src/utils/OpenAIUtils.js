@@ -13,6 +13,7 @@ export class OpenAIChatUtils {
       model: "gpt-3.5-turbo",
       messages: messages,
       stream: true,
+      max_tokens: 1000,
     };
 
     try {
@@ -39,7 +40,7 @@ export class OpenAIChatUtils {
   ) {
     const messages = [
       {
-        role: "user",
+        role: "You are developer that writes best README.md files",
         content: `You are a developer working on a project called ${projectName}.You need to write a concise and informative project README.md file to introduce the project and provide essential information to users. Also you can include html elements with center classes to provide more beautiful README. Add logos and gif where appropriate from repository resources, resources: ${
           resources ? resources : "No resources, do not include images"
         }. Extra information from user: ${extra}
