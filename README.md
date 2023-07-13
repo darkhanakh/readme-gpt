@@ -1,5 +1,3 @@
-<h1 align="center"><img src="https://github.com/darkhanakh/readme-gpt/blob/main/docs/resources/readme-gpt-logo.png?raw=true" alt="Readme-GPT"></h1>
-
 <h2 align="center">📖 README-GPT</h2>
 <p align="center">A powerful tool for generating high-quality README files using GPT-3 and integrating with GitHub API.</p>
 
