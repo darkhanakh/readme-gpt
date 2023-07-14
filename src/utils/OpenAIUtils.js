@@ -36,19 +36,29 @@ export class OpenAIChatUtils {
     projectLicense,
     projectEnvironment,
     extra,
-    resources
+    resources,
+    scripts
   ) {
     const messages = [
       {
-        role: "You are developer that writes best README.md files",
+        role: "system",
         content: `You are a developer working on a project called ${projectName}.You need to write a concise and informative project README.md file to introduce the project and provide essential information to users. Also you can include html elements with center classes to provide more beautiful README. Add logos and gif where appropriate from repository resources, resources: ${
           resources ? resources : "No resources, do not include images"
-        }. Extra information from user: ${extra}
-Write a README.md file in Markdown syntax and emojis, so document that covers the following sections:
+        }. Extra information from user: ${
+          extra ? extra : "No extra information"
+        }
+
+`,
+      },
+      {
+        role: "system",
+        content: `Write a README.md file in Markdown syntax and emojis, so document that covers the following sections:
 Introduction: Provide a description to the project, explaining its purpose and goals.
 Features: Highlight the key features and functionalities of the project. Explain what sets it apart and makes it useful for users. With this features: ${features}
 Installation: Explain how users can install and set up the project on their local machines. Environment: ${projectEnvironment}
-Usage: Describe how users can use the project and any relevant instructions or examples to help them get started.
+Usage: Describe how users can use the project and any relevant instructions or examples to help them get started. Scripts: ${JSON.stringify(
+          scripts
+        )}
 Contributing: Provide guidelines and instructions for users who wish to contribute to the project. Explain how they can get involved, submit bug reports, or suggest improvements. Open to contribution: ${
           contribution ? "Yes" : "No"
         }

@@ -10,22 +10,50 @@ let tab = null;
 
 // Get data about repository from Octokit using the repository URL
 async function getRepoData(url) {
+  try {
+    const match = url.match(
+      /github\.com\/([^/]+)\/([^/]+)\/[^/]+\/(.+?)(?=\/|$)/
+    );
+
+    return await octokit.request(
+      `GET /repos/{owner}/{repo}/contents/docs/{path}`,
+      {
+        owner: match[1],
+        repo: match[2],
+        path: "resources",
+        ref: match[3] ? match[3] : "main",
+        headers: {
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+      }
+    );
+  } catch (e) {
+    if (e.status === 404) {
+      return { error: "Not found" };
+    }
+  }
+}
+
+// Get repo's package.json file and decode it from base64 and get scripts from it
+async function getPackageJson(url) {
   const match = url.match(
     /github\.com\/([^/]+)\/([^/]+)\/[^/]+\/(.+?)(?=\/|$)/
   );
 
-  return await octokit.request(
-    `GET /repos/{owner}/{repo}/contents/docs/{path}`,
+  const packageJson = await octokit.request(
+    `GET /repos/{owner}/{repo}/contents/package.json`,
     {
       owner: match[1],
       repo: match[2],
-      path: "resources",
       ref: match[3] ? match[3] : "main",
       headers: {
         "X-GitHub-Api-Version": "2022-11-28",
       },
     }
   );
+
+  const decodedPackageJson = atob(packageJson.data.content);
+  return JSON.parse(decodedPackageJson).scripts;
 }
 
 function getEditorElement() {
@@ -42,13 +70,16 @@ function getEditorElement() {
 
 async function generateReadme(request, sender, sendResponse) {
   const repoData = await getRepoData(request.tab.url);
+  const packageJsonScripts = await getPackageJson(request.tab.url);
 
   if (!editor) {
     await getEditorElement();
   }
 
   // Loop through repoData and get all html_url's
-  const resources = repoData.data.map((resource) => resource.html_url);
+  const resources = repoData.error
+    ? []
+    : repoData.data.map((resource) => resource.html_url);
 
   const response = await openAIUtils.generateProjectReadme(
     request.name,
@@ -57,7 +88,8 @@ async function generateReadme(request, sender, sendResponse) {
     request.license,
     request.environment,
     request.extra,
-    resources
+    resources,
+    packageJsonScripts
   );
   const reader = response.body.getReader();
   let text = "";
