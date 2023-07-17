@@ -1,8 +1,7 @@
 import { OpenAIChatUtils } from "../utils/OpenAIUtils";
-import CONSTANTS from "../../constants";
 import { Octokit } from "octokit";
 
-const openAIUtils = new OpenAIChatUtils(CONSTANTS.OPENAI_KEY);
+const openAIUtils = new OpenAIChatUtils(process.env.OPENAI_API_KEY);
 const octokit = new Octokit({});
 
 let editor = null;

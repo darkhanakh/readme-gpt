@@ -2,6 +2,7 @@ const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 const htmlPages = ["success"];
 const multiplyHtmlPages = htmlPages.map(
@@ -42,6 +43,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new Dotenv(),
     new CleanWebpackPlugin(),
     new HTMLWebpackPlugin({
       template: "./src/popup.html",
