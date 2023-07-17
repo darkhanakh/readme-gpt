@@ -1,6 +1,16 @@
 const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+
+const htmlPages = ["success"];
+const multiplyHtmlPages = htmlPages.map(
+  (page) =>
+    new HTMLWebpackPlugin({
+      template: `./src/${page}.html`,
+      filename: `${page}.html`,
+    })
+);
 
 module.exports = {
   entry: {
@@ -32,6 +42,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HTMLWebpackPlugin({
       template: "./src/popup.html",
       filename: "popup.html",
@@ -43,5 +54,5 @@ module.exports = {
         },
       ],
     }),
-  ],
+  ].concat(multiplyHtmlPages),
 };
