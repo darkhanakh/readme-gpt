@@ -1,11 +1,14 @@
 const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   entry: {
     popup: "./src/popup.jsx",
     content: "./src/contents/content.js",
+    background: "./src/background.js",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -32,6 +35,8 @@ module.exports = {
     ],
   },
   plugins: [
+    new Dotenv(),
+    new CleanWebpackPlugin(),
     new HTMLWebpackPlugin({
       template: "./src/popup.html",
       filename: "popup.html",

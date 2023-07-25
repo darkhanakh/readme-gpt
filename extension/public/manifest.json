@@ -11,6 +11,10 @@
       "js": ["./content.js"]
     }
   ],
+  "background": {
+    "service_worker": "./background.js",
+    "type": "module"
+  },
   "host_permissions": ["<all_urls>"],
   "action": {
     "default_popup": "popup.html"
@@ -18,6 +22,10 @@
   "permissions": [
     "tabs",
     "activeTab",
-    "storage"
-  ]
+    "storage",
+    "cookies"
+  ],
+  "externally_connectable": {
+    "matches": ["<all_urls>"]
+  }
 }

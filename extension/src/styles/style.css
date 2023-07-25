@@ -4,6 +4,7 @@
 
 body {
     @apply h-64 w-64;
+    font-family: 'Roboto', sans-serif;
 }
 
 .extension {
@@ -56,4 +57,8 @@ body {
 
 .extension__form-error {
     @apply alert alert-error mt-3;
+}
+
+.extension__login-button {
+    @apply btn btn-primary mt-2 btn-md;
 }
