@@ -1,33 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useCookies } from "react-cookie";
 
-interface GithubUserData {
-  avatar_url?: string;
-  login?: string;
-}
-
 const Content = () => {
-  const [token, setToken] = useState(localStorage.getItem("token"));
-  const [userData, setUserData] = useState<GithubUserData>({});
   const [cookies, setCookie, removeCookie] = useCookies([
     "extension-github-token",
   ]);
 
-  const getUserData = async () => {
-    const response = await fetch("http://localhost:4000/getUser", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-
-    const data = await response.json();
-    setUserData(data);
-  };
+  const token = cookies["extension-github-token"];
 
   const logout = () => {
-    localStorage.removeItem("token");
-    setToken(null);
     removeCookie("extension-github-token");
   };
 
@@ -43,8 +24,6 @@ const Content = () => {
           const data = await response.json();
           console.log(data);
           if (data.access_token) {
-            localStorage.setItem("token", data.access_token);
-            setToken(data.access_token);
             setCookie("extension-github-token", data.access_token, {
               path: "/",
             });
@@ -55,34 +34,24 @@ const Content = () => {
       };
       getAccessToken();
     }
-  }, [token]);
+  }, [token, setCookie]);
 
   return (
     <div>
       {token ? (
         <>
-          {cookies["extension-github-token"]}
-          <button onClick={getUserData} className="btn">
-            Get user data
-          </button>
-          <button onClick={logout} className="btn">
-            Logout
-          </button>
-          {Object.keys(userData).length > 0 && (
-            <>
-              <div>Hey there {userData.login}</div>
-              <img
-                src={userData.avatar_url}
-                alt="avatar"
-                width="100px"
-                height="100px"
-              />
-            </>
-          )}
+          <div className="flex flex-col items-center justify-center h-96">
+            <h1 className="text-4xl mb-5">You are successfully logged in</h1>
+            <button onClick={logout} className="btn">
+              Logout
+            </button>
+          </div>
         </>
       ) : (
         <>
-          <h3>User is not logged in</h3>
+          <div className="flex flex-col items-center justify-center h-96">
+            <h3 className="text-4xl">You are not logged in</h3>
+          </div>
         </>
       )}
     </div>

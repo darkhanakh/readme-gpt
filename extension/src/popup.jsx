@@ -15,6 +15,7 @@ const Popup = () => {
   const [extra, setExtra] = useState("");
   const [formError, setFormError] = useState("");
   const [tab, setTab] = useState({});
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -53,6 +54,10 @@ const Popup = () => {
     setFormError("");
   };
 
+  const handleLogin = () => {
+    chrome.tabs.create({ url: "http://localhost:5173" });
+  };
+
   useEffect(() => {
     const getCurrentTab = async () => {
       const tabs = await chrome.tabs.query({
@@ -80,6 +85,18 @@ const Popup = () => {
   }, []);
 
   useEffect(() => {
+    chrome.cookies.get(
+      {
+        url: "http://localhost:5173/",
+        name: "extension-github-token",
+      },
+      function (cookie) {
+        if (cookie) {
+          setIsLoggedIn(true);
+        }
+      }
+    );
+
     // Save the state variables to storage.local
     chrome.storage.local.set(
       {
@@ -97,85 +114,98 @@ const Popup = () => {
   }, [name, features, contribution, license, environment, extra]);
 
   return (
-    <div className="extension">
-      <h1 className="extension__title">README.md Writer</h1>
-      <form className="extension__form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={name}
-          placeholder="Project name"
-          className="extension__input"
-          onInput={(e) => setName(e.target.value)}
-        />
-        <textarea
-          className="extension__textarea"
-          placeholder="Project features"
-          value={features}
-          onInput={(e) => setFeatures(e.target.value)}
-        ></textarea>
-        <div className="extension__contribution">
-          <label className="extension__contribution-label">
-            <span className="extension__contribution-text">
-              Is project open to contribution?
-            </span>
+    <>
+      {isLoggedIn ? (
+        <div className="extension">
+          <h1 className="extension__title">README.md Writer</h1>
+          <form className="extension__form" onSubmit={handleSubmit}>
             <input
-              type="checkbox"
-              checked={contribution}
-              onChange={(e) => setContribution(e.target.checked)}
-              className="extension__contribution-checkbox"
+              type="text"
+              value={name}
+              placeholder="Project name"
+              className="extension__input"
+              onInput={(e) => setName(e.target.value)}
             />
-          </label>
+            <textarea
+              className="extension__textarea"
+              placeholder="Project features"
+              value={features}
+              onInput={(e) => setFeatures(e.target.value)}
+            ></textarea>
+            <div className="extension__contribution">
+              <label className="extension__contribution-label">
+                <span className="extension__contribution-text">
+                  Is project open to contribution?
+                </span>
+                <input
+                  type="checkbox"
+                  checked={contribution}
+                  onChange={(e) => setContribution(e.target.checked)}
+                  className="extension__contribution-checkbox"
+                />
+              </label>
+            </div>
+
+            <Select
+              options={[
+                "MIT",
+                "GPLv3",
+                "Apache License 2.0",
+                "The Unlicense",
+                "Boost Software License 1.0",
+                "Mozilla Public License 2.0",
+              ]}
+              optionText="Select a license"
+              setState={setLicense}
+              state={license}
+            />
+
+            <Select
+              options={[
+                "npm",
+                "yarn",
+                "Python (pip)",
+                "Python (poetry)",
+                "No environment",
+              ]}
+              optionText="Select an environment"
+              setState={setEnvironment}
+              state={environment}
+            />
+
+            <textarea
+              className="extension__textarea"
+              placeholder="Extra information"
+              value={extra}
+              onInput={(e) => setExtra(e.target.value)}
+            ></textarea>
+            {formError && (
+              <div className="extension__form-error">
+                <span>{formError}</span>
+              </div>
+            )}
+            <button className="extension__button" type="submit">
+              Generate
+            </button>
+            <button
+              className="extension__button extension__button--reset"
+              onClick={handleReset}
+            >
+              Reset
+            </button>
+          </form>
         </div>
-
-        <Select
-          options={[
-            "MIT",
-            "GPLv3",
-            "Apache License 2.0",
-            "The Unlicense",
-            "Boost Software License 1.0",
-            "Mozilla Public License 2.0",
-          ]}
-          optionText="Select a license"
-          setState={setLicense}
-          state={license}
-        />
-
-        <Select
-          options={[
-            "npm",
-            "yarn",
-            "Python (pip)",
-            "Python (poetry)",
-            "No environment",
-          ]}
-          optionText="Select an environment"
-          setState={setEnvironment}
-          state={environment}
-        />
-
-        <textarea
-          className="extension__textarea"
-          placeholder="Extra information"
-          value={extra}
-          onInput={(e) => setExtra(e.target.value)}
-        ></textarea>
-        {formError && (
-          <div className="extension__form-error">
-            <span>{formError}</span>
+      ) : (
+        <>
+          <div className="extension">
+            <h1 className="extension__title">README.md Writer</h1>
+            <button className="extension__login-button" onClick={handleLogin}>
+              Login
+            </button>
           </div>
-        )}
-        <button className="extension__button" type="submit">
-          Generate
-        </button>
-        <button
-          className="extension__button extension__button--reset"
-          onClick={handleReset}
-        >
-          Reset
-        </button>
-      </form>
-    </div>
+        </>
+      )}
+    </>
   );
 };
 

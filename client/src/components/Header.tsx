@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 const Header = () => {
+  const [cookies] = useCookies(["extension-github-token"]);
+
   return (
     <>
       <div className="navbar bg-base-10">
@@ -10,11 +13,13 @@ const Header = () => {
           </Link>
         </div>
         <div className="flex-none">
-          <>
-            <Link to="/login" className="btn btn-outline">
-              Login
-            </Link>
-          </>
+          {!cookies["extension-github-token"] && (
+            <>
+              <Link to="/login" className="btn btn-outline">
+                Login
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </>

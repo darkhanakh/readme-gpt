@@ -5,17 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6af37c0-eab1-42ff-af72-cff27902023b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/extension/src/background.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/readme-writer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/readme-writer.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/Hero.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Content.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/client/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extension/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/extension/public/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extension/src/contents/content.js" beforeDir="false" afterPath="$PROJECT_DIR$/extension/src/contents/content.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extension/src/popup.html" beforeDir="false" afterPath="$PROJECT_DIR$/extension/src/popup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extension/src/popup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/extension/src/popup.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extension/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/extension/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extension/src/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/extension/src/styles/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +24,8 @@
       <list>
         <option value="CSS File" />
         <option value="HTML File" />
-        <option value="TypeScript JSX File" />
         <option value="JavaScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -137,7 +134,7 @@
       <workItem from="1690047155880" duration="1619000" />
       <workItem from="1690174030150" duration="363000" />
       <workItem from="1690182735342" duration="4159000" />
-      <workItem from="1690259333353" duration="4310000" />
+      <workItem from="1690259333353" duration="11174000" />
     </task>
     <servers />
   </component>
@@ -154,15 +151,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/client/src/components/Content.tsx</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
