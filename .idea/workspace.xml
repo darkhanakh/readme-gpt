@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6af37c0-eab1-42ff-af72-cff27902023b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/Hero.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extension/src/components/Generate.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Content.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extension/src/popup.html" beforeDir="false" afterPath="$PROJECT_DIR$/extension/src/popup.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extension/src/popup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/extension/src/popup.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extension/src/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/extension/src/styles/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +129,7 @@
       <workItem from="1690047155880" duration="1619000" />
       <workItem from="1690174030150" duration="363000" />
       <workItem from="1690182735342" duration="4159000" />
-      <workItem from="1690259333353" duration="11174000" />
+      <workItem from="1690259333353" duration="12112000" />
     </task>
     <servers />
   </component>
