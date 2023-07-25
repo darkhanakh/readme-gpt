@@ -4,19 +4,11 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 
-const htmlPages = ["success"];
-const multiplyHtmlPages = htmlPages.map(
-  (page) =>
-    new HTMLWebpackPlugin({
-      template: `./src/${page}.html`,
-      filename: `${page}.html`,
-    })
-);
-
 module.exports = {
   entry: {
     popup: "./src/popup.jsx",
     content: "./src/contents/content.js",
+    background: "./src/background.js",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -56,5 +48,5 @@ module.exports = {
         },
       ],
     }),
-  ].concat(multiplyHtmlPages),
+  ],
 };
