@@ -6,7 +6,7 @@
   "author": "Darkhan <darkhanahmetov228@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --config webpack.build.js",
+    "build": "webpack --config webpack.prod.js",
     "dev": "webpack --watch --config webpack.dev.js"
   },
   "dependencies": {

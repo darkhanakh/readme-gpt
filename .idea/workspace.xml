@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6af37c0-eab1-42ff-af72-cff27902023b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/extension/src/components/Generate.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/extension/public/icons/logo.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extension/src/popup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/extension/src/popup.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extension/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/extension/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extension/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/extension/public/manifest.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +42,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;github-login&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/Work/Web/FullStack/readme-writer/client&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
@@ -52,7 +53,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\Darkhan\\AppData\\Roaming\\npm\\node_modules\\prettier&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;JavaScript.Libraries&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;D:\\Work\\Web\\FullStack\\readme-writer\\client\\node_modules\\typescript\\lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\Darkhan\\AppData\\Local\\JetBrains\\Toolbox\\apps\\WebStorm\\ch-0\\231.9011.35\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -70,11 +71,11 @@
       <recent name="D:\Work\Web\FullStack\readme-writer\client" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Work\Web\FullStack\readme-writer\extension\public\icons" />
+      <recent name="D:\Work\Web\FullStack\readme-writer\extension\public" />
       <recent name="D:\Work\Web\FullStack\readme-writer\dist" />
       <recent name="D:\Work\Web\FullStack\readme-writer\docs\resources" />
       <recent name="D:\Work\Web\FullStack\readme-writer\public" />
-      <recent name="D:\Work\Web\FullStack\readme-writer\src\styles" />
-      <recent name="D:\Work\Web\FullStack\readme-writer\src\contents" />
     </key>
   </component>
   <component name="RunManager">
@@ -129,7 +130,8 @@
       <workItem from="1690047155880" duration="1619000" />
       <workItem from="1690174030150" duration="363000" />
       <workItem from="1690182735342" duration="4159000" />
-      <workItem from="1690259333353" duration="12112000" />
+      <workItem from="1690259333353" duration="12598000" />
+      <workItem from="1690357170169" duration="1949000" />
     </task>
     <servers />
   </component>
