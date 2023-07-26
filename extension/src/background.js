@@ -1,7 +1,7 @@
 const getCookieToken = (sendResponse) => {
   chrome.cookies.get(
     {
-      url: "http://localhost:5173/",
+      url: "https://readme-gpt-lemon.vercel.app/",
       name: "extension-github-token",
     },
     (cookie) => {

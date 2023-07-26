@@ -55,7 +55,7 @@ const Popup = () => {
   };
 
   const handleLogin = () => {
-    chrome.tabs.create({ url: "http://localhost:5173" });
+    chrome.tabs.create({ url: "https://readme-gpt-lemon.vercel.app/" });
   };
 
   useEffect(() => {

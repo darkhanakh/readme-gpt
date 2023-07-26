@@ -19,7 +19,8 @@ const Content = () => {
       const getAccessToken = async () => {
         try {
           const response = await fetch(
-            "http://localhost:4000/getAccessToken?code=" + codeParam
+            "https://readme-gpt-express.onrender.com/getAccessToken?code=" +
+              codeParam
           );
           const data = await response.json();
           console.log(data);
