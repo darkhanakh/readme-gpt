@@ -1,10 +1,8 @@
-<!--- Center aligned title with emoji -->
+
 <h1 align="center">Readme GPT Monorepository</h1>
 
-<!--- Center aligned emoji -->
 <p align="center">📚🤖💻</p>
 
-<!--- Center aligned project description -->
 <p align="center">Welcome to Readme GPT Monorepository! This project is designed to provide a unified solution for creating best README.md files. Whether you are a developer, a team lead, or a project manager, Readme GPT Monorepository can help you create concise and informative README files to effectively communicate the purpose, features, installation process, usage, and licensing of your projects.</p>
 
 ## Features
@@ -46,5 +44,4 @@ If you encounter any bugs or have suggestions for improvement, please open an is
 
 This project is distributed under the [MIT License](LICENSE). Feel free to use, modify, and distribute this project under the specified terms and conditions.
 
-<!--- Center aligned thank you message -->
 <p align="center">Thank you for using Readme GPT Monorepository! 🙌</
