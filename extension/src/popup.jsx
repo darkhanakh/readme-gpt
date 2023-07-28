@@ -54,6 +54,14 @@ const Popup = () => {
     setFormError("");
   };
 
+  const handleLogout = () => {
+    chrome.cookies.remove({
+      url: "https://readme-gpt-lemon.vercel.app/",
+      name: "extension-github-token",
+    });
+    setIsLoggedIn(false);
+  };
+
   const handleLogin = () => {
     chrome.tabs.create({ url: "https://readme-gpt-lemon.vercel.app/" });
   };
@@ -87,7 +95,7 @@ const Popup = () => {
   useEffect(() => {
     chrome.cookies.get(
       {
-        url: "http://localhost:5173/",
+        url: "https://readme-gpt-lemon.vercel.app/",
         name: "extension-github-token",
       },
       function (cookie) {
@@ -131,6 +139,7 @@ const Popup = () => {
           setExtra={setExtra}
           handleReset={handleReset}
           handleSubmit={handleSubmit}
+          handleLogout={handleLogout}
         />
       ) : (
         <>

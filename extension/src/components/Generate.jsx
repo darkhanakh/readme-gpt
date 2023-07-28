@@ -17,6 +17,7 @@ const Generate = ({
   license,
   environment,
   extra,
+  handleLogout,
 }) => {
   return (
     <div className="extension">
@@ -48,7 +49,6 @@ const Generate = ({
             />
           </label>
         </div>
-
         <Select
           options={[
             "MIT",
@@ -62,7 +62,6 @@ const Generate = ({
           setState={setLicense}
           state={license}
         />
-
         <Select
           options={[
             "npm",
@@ -75,7 +74,6 @@ const Generate = ({
           setState={setEnvironment}
           state={environment}
         />
-
         <textarea
           className="extension__textarea"
           placeholder="Extra information"
@@ -95,6 +93,12 @@ const Generate = ({
           onClick={handleReset}
         >
           Reset
+        </button>{" "}
+        <button
+          className="extension__button extension__button--logout"
+          onClick={handleLogout}
+        >
+          Logout
         </button>
       </form>
     </div>

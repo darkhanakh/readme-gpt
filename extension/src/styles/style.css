@@ -24,7 +24,11 @@ body {
 }
 
 .extension__button--reset {
-    @apply btn-error;
+    @apply btn-error text-white;
+}
+
+.extension__button--logout {
+    @apply btn-outline btn-warning;
 }
 
 .extension__form {
