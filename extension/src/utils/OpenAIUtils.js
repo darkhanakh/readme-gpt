@@ -37,7 +37,8 @@ export class OpenAIChatUtils {
     projectLicense,
     projectEnvironment,
     extra,
-    resources
+    resources,
+    url
   ) {
     const messages = [
       {
@@ -46,7 +47,7 @@ export class OpenAIChatUtils {
       },
       {
         role: "user",
-        content: `You are a developer working on a project called **${projectName}**. You need to write a concise and informative project README.md file to introduce the project and provide essential information to users. Use Markdown syntax, emojis and HTML elements with aligning classes like center and emojis to make your README more readable and engaging. Also include resources like gif and images from here: ${
+        content: `You are a developer working on a project called **${projectName}**. Here is url of repository: ${url} You need to write a concise and informative project README.md file to introduce the project and provide essential information to users. Use Markdown syntax, emojis and HTML elements with aligning classes like center and emojis to make your README more readable and engaging. Also include resources like gif and images from here: ${
           resources
             ? resources
             : "No resources found in repository, do not include resources"

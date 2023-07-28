@@ -34,7 +34,6 @@ const Popup = () => {
       license,
       environment,
       tab,
-      action: "generate-readme",
     });
     handleReset(e);
   };

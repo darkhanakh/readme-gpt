@@ -20,7 +20,7 @@ async function getRepoData(url) {
       /github\.com\/([^/]+)\/([^/]+)\/[^/]+\/(.+?)(?=\/|$)/
     );
 
-    return await octokit.request(
+    const repoData = await octokit.request(
       `GET /repos/{owner}/{repo}/contents/docs/{path}`,
       {
         owner: match[1],
@@ -32,6 +32,8 @@ async function getRepoData(url) {
         },
       }
     );
+
+    return { repoData, url: `github.com/${match[1]}/${match[2]}}` };
   } catch (err) {
     console.log(err);
   }
@@ -50,7 +52,7 @@ function getEditorElement() {
 }
 
 async function generateReadme(request, sender, sendResponse) {
-  const repoData = await getRepoData(request.tab.url);
+  const { repoData, url } = await getRepoData(request.tab.url);
   if (!editor) {
     await getEditorElement();
   }
@@ -64,7 +66,8 @@ async function generateReadme(request, sender, sendResponse) {
       request.license,
       request.environment,
       request.extra,
-      resources
+      resources,
+      url
     );
 
     const reader = response.body.getReader();
