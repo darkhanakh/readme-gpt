@@ -20,25 +20,37 @@ async function getRepoData(url) {
       /github\.com\/([^/]+)\/([^/]+)\/[^/]+\/(.+?)(?=\/|$)/
     );
 
-    const repoData = await octokit.request(
+    if (!match) {
+      throw new Error("Invalid GitHub repository URL");
+    }
+
+    const owner = match[1];
+    const repo = match[2];
+    const ref = match[3] ? match[3] : "main";
+
+    const response = await octokit.request(
       `GET /repos/{owner}/{repo}/contents/docs/{path}`,
       {
-        owner: match[1],
-        repo: match[2],
+        owner,
+        repo,
         path: "resources",
-        ref: match[3] ? match[3] : "main",
+        ref,
         headers: {
           "X-GitHub-Api-Version": "2022-11-28",
         },
       }
     );
 
-    return { repoData, url: `github.com/${match[1]}/${match[2]}}` };
+    if (response.status !== 200) {
+      throw new Error("GitHub API returned an error: " + response.status);
+    }
+
+    return { repoData: response.data, url: `github.com/${owner}/${repo}` };
   } catch (err) {
-    console.log(err);
+    console.error("Error fetching repo data:", err);
+    return { repoData: null, url: "" };
   }
 }
-
 function getEditorElement() {
   return new Promise((resolve, reject) => {
     const interval = setInterval(() => {
@@ -53,6 +65,7 @@ function getEditorElement() {
 
 async function generateReadme(request, sender, sendResponse) {
   const { repoData, url } = await getRepoData(request.tab.url);
+  console.log(repoData, "BOUNCE");
   if (!editor) {
     await getEditorElement();
   }
