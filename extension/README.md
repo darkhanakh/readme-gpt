@@ -3,7 +3,7 @@
 
 ---
 
-<p align="center"><img src="https://github.com/darkhanakh/readme-gpt/blob/main/docs/resources/how_extension_works.gif?raw=true" alt="How the extension works"></p>
+<p align="center"><img src="https://github.com/darkhanakh/readme-gpt/blob/main/extension/docs/resources/how_extension_works.gif?raw=true" alt="How the extension works"></p>
 
 ## 🚀 Features
 
