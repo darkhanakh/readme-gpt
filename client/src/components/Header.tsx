@@ -2,7 +2,13 @@ import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
 const Header = () => {
-  const [cookies] = useCookies(["extension-github-token"]);
+  const [cookies, _setCookies, removeCookies] = useCookies([
+    "extension-github-token",
+  ]);
+
+  const handleLogout = () => {
+    removeCookies("extension-github-token");
+  };
 
   return (
     <>
@@ -13,11 +19,17 @@ const Header = () => {
           </Link>
         </div>
         <div className="flex-none">
-          {!cookies["extension-github-token"] && (
+          {!cookies["extension-github-token"] ? (
             <>
               <Link to="/login" className="btn btn-outline">
                 Login
               </Link>
+            </>
+          ) : (
+            <>
+              <button onClick={handleLogout} className="btn btn-outline">
+                Logout
+              </button>
             </>
           )}
         </div>

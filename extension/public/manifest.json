@@ -19,7 +19,7 @@
     "service_worker": "./background.js",
     "type": "module"
   },
-  "host_permissions": ["https://github.com/*"],
+  "host_permissions": ["https://github.com/*", "https://readme-gpt-lemon.vercel.app/"],
   "action": {
     "default_popup": "popup.html"
   },

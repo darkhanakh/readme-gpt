@@ -121,36 +121,36 @@ const Popup = () => {
   }, [name, features, contribution, license, environment, extra]);
 
   return (
-    <>
-      {isLoggedIn ? (
-        <Generate
-          name={name}
-          license={license}
-          features={features}
-          formError={formError}
-          contribution={contribution}
-          environment={environment}
-          setName={setName}
-          setFeatures={setFeatures}
-          setContribution={setContribution}
-          setLicense={setLicense}
-          setEnvironment={setEnvironment}
-          setExtra={setExtra}
-          handleReset={handleReset}
-          handleSubmit={handleSubmit}
-          handleLogout={handleLogout}
-        />
-      ) : (
-        <>
-          <div className="extension">
-            <h1 className="extension__title">README.md Writer</h1>
-            <button className="extension__login-button" onClick={handleLogin}>
-              Login
-            </button>
-          </div>
-        </>
-      )}
-    </>
+      <>
+        {isLoggedIn ? (
+            <Generate
+                name={name}
+                license={license}
+                features={features}
+                formError={formError}
+                contribution={contribution}
+                environment={environment}
+                setName={setName}
+                setFeatures={setFeatures}
+                setContribution={setContribution}
+                setLicense={setLicense}
+                setEnvironment={setEnvironment}
+                setExtra={setExtra}
+                handleReset={handleReset}
+                handleSubmit={handleSubmit}
+                handleLogout={handleLogout}
+            />
+        ) : (
+            <>
+              <div className="extension">
+                <h1 className="extension__title">README.md Writer</h1>
+                <button className="extension__login-button" onClick={handleLogin}>
+                  Login
+                </button>
+              </div>
+            </>
+        )}
+      </>
   );
 };
 
